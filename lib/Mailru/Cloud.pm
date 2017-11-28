@@ -1,21 +1,6 @@
-#
-#===============================================================================
-#
-#         FILE: Cloud.pm
-#
-#  DESCRIPTION: 
-#
-#        FILES: ---
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: YOUR NAME (), 
-# ORGANIZATION: 
-#      VERSION: 1.0
-#      CREATED: 05.11.2017 22:46:38
-#     REVISION: ---
-#===============================================================================
 package Mailru::Cloud;
 
+use 5.008001;
 use strict;
 use warnings;
 use utf8;
@@ -26,7 +11,6 @@ use File::Basename;
 use HTTP::Request;
 use JSON::XS;
 use Encode;
-use Data::Printer;
 use IO::Socket::SSL;
 use base qw/Mailru::Cloud::Auth/;
 
@@ -442,7 +426,7 @@ Share resource for all. Return weblink if success. Die if error
 
 =head1 DEPENDENCE
 
-L<LWP::UserAgent>, L<JSON::XS>, L<URI::Escape>, L<IO::Socket::SSL>, L<Encode>, L<HTTP::Request>
+L<LWP::UserAgent>, L<JSON::XS>, L<URI::Escape>, L<IO::Socket::SSL>, L<Encode>, L<HTTP::Request>, L<Carp>, L<File::Basename>
 
 =head1 AUTHORS
 

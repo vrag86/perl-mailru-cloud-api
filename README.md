@@ -98,7 +98,7 @@ Share resource for all. Return weblink if success. Die if error
 
 # DEPENDENCE
 
-[LWP::UserAgent](https://metacpan.org/pod/LWP::UserAgent), [JSON::XS](https://metacpan.org/pod/JSON::XS), [URI::Escape](https://metacpan.org/pod/URI::Escape), [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL), [Encode](https://metacpan.org/pod/Encode), [HTTP::Request](https://metacpan.org/pod/HTTP::Request)
+[LWP::UserAgent](https://metacpan.org/pod/LWP::UserAgent), [JSON::XS](https://metacpan.org/pod/JSON::XS), [URI::Escape](https://metacpan.org/pod/URI::Escape), [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL), [Encode](https://metacpan.org/pod/Encode), [HTTP::Request](https://metacpan.org/pod/HTTP::Request), [Carp](https://metacpan.org/pod/Carp), [File::Basename](https://metacpan.org/pod/File::Basename)
 
 # AUTHORS
 

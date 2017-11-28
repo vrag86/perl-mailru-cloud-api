@@ -7,7 +7,6 @@ use utf8;
 use open qw(:std :utf8);
 use LWP::UserAgent;
 use HTTP::Request;
-use Mojo::DOM;
 use Carp 'croak';
  
 our $VERSION    = '0.01';
