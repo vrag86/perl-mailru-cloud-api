@@ -40,23 +40,26 @@ can_ok("Mailru::Cloud", 'new');
 my $cloud = Mailru::Cloud->new;
 isa_ok($cloud, "Mailru::Cloud");
 
-ok ($cloud->login(-login => $login, -password => $password), "Test login");
-ok ($cloud->__isLogin(), "Test login method '__isLogin'");
+SKIP: {
+    
+    my $login_status = $cloud->login(-login => $login, -password => $password);
+    skip "Skip tests. Ccnt login with username: $login" if not $login_status;
 
+    ok ($cloud->__isLogin(), "Test login method '__isLogin'");
 
+    test_info();
+    test_createFolder();
+    my @uploaded = test_uploadFile();
+    test_listFiles();
+    test_shareResource();
+    test_downloadFile();
 
-test_info();
-test_createFolder();
-my @uploaded = test_uploadFile();
-test_listFiles();
-test_shareResource();
-test_downloadFile();
+    test_deleteResource($_) for @uploaded;
+    test_deleteResource($create_folder);
+    test_deleteResource('/dfhdffereerer');
 
-test_deleteResource($_) for @uploaded;
-test_deleteResource($create_folder);
-test_deleteResource('/dfhdffereerer');
-
-test_emptyTrash();
+    test_emptyTrash();
+}
 
 sub test_info {
     my $info = $cloud->info;
