@@ -11,7 +11,7 @@ use JSON::XS;
 use URI::Escape;
 use Carp 'croak';
  
-our $VERSION    = '0.03';
+our $VERSION    = '0.04';
 
 sub new {
     my ($class) = @_;
@@ -140,7 +140,7 @@ __END__
 B<Mailru::Cloud::Auth> - authorize on site https://cloud.mail.ru and return csrf token
 
 =head1 VERSION
-    version 0.03
+    version 0.04
 
 =head1 SYNOPSYS
     
