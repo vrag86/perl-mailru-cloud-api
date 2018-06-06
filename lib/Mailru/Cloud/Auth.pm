@@ -11,7 +11,7 @@ use JSON::XS;
 use URI::Escape;
 use Carp 'croak';
  
-our $VERSION    = '0.02';
+our $VERSION    = '0.03';
 
 sub new {
     my ($class) = @_;
@@ -100,7 +100,7 @@ sub __parseInfo {
                 'total_space'       => '',
                 'file_size_limit'   => '',
             );
-    if ($$content =~ /"space":[{].+?"used":(.+?),"total":(.+?)[}]/) {
+    if ($$content =~ /"space":[\{].+?"used":(.+?),"total":(.+?)[\}]/) {
         $info{used_space} = $1 * 1024 * 1024;   # To bytes from Mbytes
         $info{total_space} = $2 * 1024 * 1024;  # To bytes from Mbytes
     }
@@ -140,7 +140,7 @@ __END__
 B<Mailru::Cloud::Auth> - authorize on site https://cloud.mail.ru and return csrf token
 
 =head1 VERSION
-    version 0.02
+    version 0.03
 
 =head1 SYNOPSYS
     
