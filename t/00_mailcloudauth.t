@@ -28,8 +28,8 @@ BEGIN {
     use_ok("Mailru::Cloud");
 }
 
-my $login                   = 'petr.davydov.80@bk.ru';
-my $password                = '@F3bHlkIS7Ou';
+my $login                   = $ENV{MAILRU_LOGIN} || 'petr.davydov.80@bk.ru';
+my $password                = $ENV{MAILRU_LOGIN} ? $ENV{MAILRU_PASSWD} : '@F3bHlkIS7Ou';
 my $uploadFile              = "$Bin/test_upload.f";
 my $download_file           = "$Bin/test_download";
 my $create_folder           = "/Test/temp" . int(rand(10000));
@@ -43,7 +43,7 @@ isa_ok($cloud, "Mailru::Cloud");
 SKIP: {
     
     my $login_status = $cloud->login(-login => $login, -password => $password);
-    skip "Skip tests. Ccnt login with username: $login" if not $login_status;
+    skip "Skip tests. Cant login with username: $login" if not $login_status;
 
     ok ($cloud->__isLogin(), "Test login method '__isLogin'");
 
