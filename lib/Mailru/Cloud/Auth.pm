@@ -16,7 +16,7 @@ our $VERSION    = '0.05';
 sub new {
     my ($class, %opt) = @_;
     my $self = {};
-    $self->{debug} = $opt{-debug} || 1;
+    $self->{debug} = $opt{-debug};
     my $ua = LWP::UserAgent->new (
                                     agent => 'Mozilla/5.0 (X11; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0',
                                     cookie_jar => {},
@@ -136,11 +136,9 @@ sub __parseInfo {
         while ($size_block =~ /"([^"]+)":\s*(\w+?)[,\s]/gm) {
             if ($1 eq 'bytes_total') {
                 $info{total_space} = $2;
-                carp "Bytes total: $2";
             }
             elsif ($1 eq 'bytes_used') {
                 $info{used_space} = $2;
-                carp "Used space: $2";
             }
         }
     }
