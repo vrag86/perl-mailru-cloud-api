@@ -11,7 +11,7 @@ use JSON::XS;
 use URI::Escape;
 use Carp qw/carp croak/;
  
-our $VERSION    = '0.05';
+our $VERSION    = '0.06';
 
 sub new {
     my ($class, %opt) = @_;
@@ -132,8 +132,9 @@ sub __parseInfo {
                 'total_space'       => '',
                 'file_size_limit'   => '',
             );
+    
     if (my ($size_block) = $$content =~ /"space":\s*{([^}]*)}/s) {
-        while ($size_block =~ /"([^"]+)":\s*(\w+?)[,\s]/gm) {
+        while ($size_block =~ /"([^"]+)":\s*(\w+?)\b/gm) {
             if ($1 eq 'bytes_total') {
                 $info{total_space} = $2;
             }

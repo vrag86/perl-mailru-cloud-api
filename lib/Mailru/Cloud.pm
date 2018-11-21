@@ -79,7 +79,7 @@ sub downloadFile {
     my $url = 'https://cloclo5.datacloudmail.ru/get/' . uri_escape($cloud_file) . '?x-email=' . uri_escape($self->{email});
     my $res = $ua->get($url, ':read_size_hint' => $BUFF_SIZE, ':content_cb' => sub {
                                                                                         if (not $FL) {
-                                                                                            open $FL, ">$file", or croak "Cant open $file to write $!";
+                                                                                            open $FL, ">$file" or croak "Cant open $file to write $!";
                                                                                             binmode $FL;
                                                                                         }
                                                                                         print $FL $_[0];
