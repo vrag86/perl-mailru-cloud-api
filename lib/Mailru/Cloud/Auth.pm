@@ -180,7 +180,7 @@ __END__
 B<Mailru::Cloud::Auth> - authorize on site https://cloud.mail.ru and return csrf token
 
 =head1 VERSION
-    version 0.05
+    version 0.06
 
 =head1 SYNOPSYS
     

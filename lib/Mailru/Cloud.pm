@@ -14,7 +14,7 @@ use Encode;
 use IO::Socket::SSL;
 use base qw/Mailru::Cloud::Auth/;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my $BUFF_SIZE = 512;
 
@@ -324,7 +324,7 @@ __END__
 B<Mailru::Cloud> - Simple REST API cloud mail.ru client
 
 =head1 VERSION
-    version 0.05
+    version 0.06
 
 =head1 SYNOPSYS
     
