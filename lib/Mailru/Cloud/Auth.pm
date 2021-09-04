@@ -86,7 +86,6 @@ sub __getToken {
 
     if ($res->is_success) {
         my $content = $res->decoded_content;
-        $DB::single = 1;
         if ($content =~ /\"csrf\"\s*\:\s*\"([0-9|a-z|A-Z|_]+)\"/) {
             $self->{authToken} = $1;
             carp "Found authToken: $self->{authToken}" if $self->{debug};
