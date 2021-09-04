@@ -80,13 +80,13 @@ sub uploadFile {
             'x-page-id' => $self->{'x-page-id'},
     };
 
-    my $res = $self->{ua}->post (
+    $res = $self->{ua}->post (
         'https://cloud.mail.ru/api/v2/file/add',
+        $param,
         'X-CSRF-Token' => $self->{authToken},
-        $param
     );
 
-    my $code = $res->code;
+    $code = $res->code;
     if ($code eq '200') {
         my $json = JSON::XS::decode_json($res->content);
         my $new_fname = $json->{body};
@@ -137,10 +137,10 @@ sub createFolder {
         'x-page-id' => $self->{'x-page-id'},
     };
 
-    my $res = $self-{ua}->post (
-        'https://cloud.mail.ru/api/v2/folder/add', 
+    my $res = $self->{ua}->post (
+        'https://cloud.mail.ru/api/v2/folder/add',
+        $param,
         'X-CSRF-Token' => $self->{authToken},
-        $param
     );
 
     my $code = $res->code;
@@ -172,8 +172,8 @@ sub deleteResource {
 
     my $res = $self->{ua}->post (
         'https://cloud.mail.ru/api/v2/file/remove',
+        $param,
         'X-CSRF-Token' => $self->{authToken},
-        $param
     );
 
     my $code = $res->code;
@@ -199,9 +199,9 @@ sub emptyTrash {
     };
 
     my $res = $self->{ua}->post (
-        'https://cloud.mail.ru/api/v2/trashbin/empty', 
+        'https://cloud.mail.ru/api/v2/trashbin/empty',
+        $param,
         'X-CSRF-Token' => $self->{authToken},
-        $param
     );
 
     my $code = $res->code;
@@ -264,8 +264,8 @@ sub shareResource {
 
     my $res = $self->{ua}->post (
         'https://cloud.mail.ru/api/v2/file/publish',
+        $param,
         'X-CSRF-Token' => $self->{authToken},
-        $param
     );
 
     my $code = $res->code;
